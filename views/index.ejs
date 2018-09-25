@@ -1,0 +1,13 @@
+<%- include('header') %>
+
+<h1>Gallery Listing</h1>
+
+<ul>
+  <% galleries.forEach(gallery => { %>
+  <li>
+    <a href="/gallery/<%- gallery.id %>">Gallery #<%- gallery.id %>: <%- gallery.name %> (Floor <%- gallery.floor %>)</a>
+  </li>
+  <% }); %>
+</ul>
+
+<%- include('footer') %>

@@ -1,0 +1,36 @@
+<%- include('header') %>
+
+<h1>Gallery</h1>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <th>Title</th>
+            <th>Page url</th>
+            <th>People</th>
+            <th>Image</th>
+        </thead>
+    <% gallery_objects.forEach(object => { %>
+        <!-- if(object.primaryimageurl == null){
+            image= "No image"
+        }else{
+            image = <img src=<%- object.primaryimageurl %>?height=150&width=150>
+        }
+        people_arr = " ";
+        object.people.forEach(person_info => {
+        people_arr += person_info.name + " ";
+        }) %> -->
+        <tbody>
+            <tr>
+                <td><a href="/object/<%- object.id %>"><%- object.title %></a></td>
+                <td><%- object.page_url %></td>
+                <td><%- object.people %></td>
+                <td><%- object.image%></td>
+            </tr>
+        </tbody>
+
+    <% }); %>
+    </table>
+</div>
+
+<%- include('footer') %>

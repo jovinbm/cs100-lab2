@@ -1,0 +1,40 @@
+<%- include('header') %>
+
+<div class="container">
+<h1>Object Information</h1>
+<ul>
+    <li><b>Title:</b><%- object.title %></a></li>
+    <li><b>Description url:</b><%- object.description %></li> 
+    <li><b>Provenance:</b><%- object.provenance %></li> 
+    <li><b>Accession Year:</b><%- object.accessionyear %></li>
+    <li><b>Image:</b></li>
+</ul>
+<%- object.primaryimageurl%>
+</div>
+
+<div class="container">
+<h1>Comments</h1>
+<form action="/object/<%=object.id%>" method="post">
+    <textarea 
+        autocomplete="off" 
+        autofocus 
+        name="comment"
+        placeholder="add comment" 
+        rows="5"
+        style="width: 100%"
+        type="text">
+    </textarea>
+    <button type="submit" class="btn-primary">Post</button>
+</form>
+<br>
+
+<% if (obj_comments != []) { %>
+    <% obj_comments.forEach(comment =>{ %>
+        <ul>
+            <li><%- comment%></li>
+        </ul>
+    <% })%>
+<%}%>
+</div>
+
+<%- include('footer') %>
